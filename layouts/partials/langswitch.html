@@ -1,6 +1,6 @@
 {{ if .IsTranslated }}
     {{ range .Translations }}
-    <a class="navbar-item" href="{{ .Permalink }}">{{ .Lang }}</a>
+        <a class="navbar-item" href="{{ .Permalink }}">{{ .Site.Language.LanguageName }}</a>
     {{ end }}
 {{ else }}
     {{ if eq .Language.Lang "fr" }}
