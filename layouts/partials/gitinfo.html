@@ -1,9 +1,9 @@
 {{- if and .GitInfo (.Site.Params.repo) }}
 <br>
 <p class="heading">
-  Last edited:
+  {{ .Site.Params.lastEdited }}
   <a href="{{ .Site.Params.repo }}/commit/{{ .GitInfo.Hash }}">
-    {{ .GitInfo.AuthorDate.Format "Jan 2, 2006"  }}
-  </a>
+    {{ .GitInfo.AuthorDate.Format .Site.Params.dateFormat  }}
+  </a> {{ .Site.Params.editedBy }} <a href="https://github.com/baywet">{{ .GitInfo.AuthorName }}</a>
 </p>
 {{- end }}
