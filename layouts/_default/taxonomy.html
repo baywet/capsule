@@ -11,7 +11,7 @@
 
       <!-- Content -->
       <div class="container" style="min-height:56vh">
-        <p class="title">List of posts tagged with {{ .Title }}</p>
+        <p class="title">{{ .Site.Params.postsWithTag }} {{ .Title }}</p>
         <ul>
         {{- $data := .Data }}
         {{- range $key, $value := .Data.Pages }}
