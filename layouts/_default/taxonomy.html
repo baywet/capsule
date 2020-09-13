@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{.Language}}" dir="ltr" itemscope itemtype="https://schema.org/DefinedTerm">
   {{ $.Scratch.Set "titleoverride" (delimit (slice .Site.Params.postsWithTag .Title ) " ") }}
+  {{ $.Scratch.Set "descriptionoverride" (delimit (slice .Site.Params.postsWithTag .Title ) " ") }}
 
   {{ partial "head.html" . }}
 

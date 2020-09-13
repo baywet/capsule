@@ -8,7 +8,10 @@
   <title>{{ .Title }}</title>
   {{- end }}
   <meta name="author" content="{{ .Site.Author.name }}" />
-  {{- if .IsPage }}
+  {{- if ($.Scratch.Get "descriptionoverride") }}
+  <meta name="description"
+        content="{{ $.Scratch.Get "descriptionoverride" }}"/>
+  {{- else if .IsPage }}
   <meta name="description"
         content="{{ with .Description }}{{ . -}}
                  {{ else }}{{ .Content | safeHTML | truncate 200 "..." -}}
@@ -25,7 +28,10 @@
 
   <!-- Schema.org markup for Google+ -->
   <meta itemprop="name" content="{{ .Title }}"/>
-  {{- if .IsPage }}
+  {{- if ($.Scratch.Get "descriptionoverride") }}
+  <meta itemprop="description"
+        content="{{ $.Scratch.Get "descriptionoverride" }}"/>
+  {{- else if .IsPage }}
   <meta itemprop="description"
         content="{{ with .Description }}{{ . -}}
                  {{ else }}{{ .Content | safeHTML | truncate 200 "..." -}}
@@ -56,7 +62,10 @@
                      {{ .Site.Data.defaults.icons.logo -}}
                    {{ end -}}
                  {{ end }}"/>
-  {{- if .IsPage }}
+  {{- if ($.Scratch.Get "descriptionoverride") }}
+  <meta property="og:description"
+        content="{{ $.Scratch.Get "descriptionoverride" }}"/>
+  {{- else if .IsPage }}
   <meta property="og:description"
         content="{{ with .Description }}{{ . -}}
                  {{ else }}{{ .Content | safeHTML | truncate 200 "..." -}}
@@ -101,10 +110,15 @@
   <meta name="twitter:site"
         content="{{ with .Site.Social.twitter }}@{{.}}{{ end }}"/>
   <meta name="twitter:title" content="{{ .Title }}"/>
+  {{- if ($.Scratch.Get "descriptionoverride") }}
+  <meta name="twitter:description"
+        content="{{ $.Scratch.Get "descriptionoverride" }}"/>
+  {{- else }}
   <meta name="twitter:description"
         content="{{ with .Description }}{{ . -}}
                  {{ else }}{{ .Content | safeHTML | truncate 200 "..." -}}
                  {{ end }}"/>
+  {{- end }}
   <meta name="twitter:creator"
         content="{{ with .Site.Social.twitter }}@{{.}}{{ end }}"/>
   <meta name="twitter:image:src"
