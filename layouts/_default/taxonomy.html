@@ -12,7 +12,7 @@
 
       <!-- Content -->
       <div class="container" style="min-height:56vh">
-        <p class="title">{{ $.Scratch.Get "titleoverride" }}</p>
+        <h1 class="title">{{ $.Scratch.Get "titleoverride" }}</h1>
         <ul>
         {{- $data := .Data }}
         {{- range $key, $value := .Data.Pages }}
