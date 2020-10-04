@@ -16,8 +16,15 @@
         <h1 class="title">{{ $.Scratch.Get "titleoverride" }}</h1>
         <ul>
         {{- $data := .Data }}
-        {{- range $key, $value := .Data.Pages }}
-            {{ .Render "summary" }}
+        {{- range $key, $value := sort .Data.Pages "Title" "asc" }}
+        <article class="media">
+          <div class="media-content">
+            <p class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+            <p class="subtitle is-flex" style="justify-content:space-between">
+            </p>
+          </div>
+        </article>
+        
         {{- end }}
         </ul>
       </div>
