@@ -135,14 +135,7 @@
   {{- end }}
 
   <!-- CSS -->
-  <style>
-      @font-face {
-            font-family: 'Font Awesome 6 Free';
-            src: url('/fonts/fa-regular-400.woff2') format('woff2'), url('/fonts/fa-regular-400.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-      }
-  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/css/capsule.min.css"/>
   {{ with .Params.css }}{{ . | safeCSS | htmlUnescape | safeHTML }}{{ end -}}
 
