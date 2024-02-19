@@ -8,20 +8,24 @@
       <div class="container">
 
         <div class="navbar-brand">
-          <a class="navbar-item" href="/{{ .Lang }}">
+          <a class="navbar-item" href="{{ "/" | relLangURL }}">
             <div class="title is-4">&nbsp;{{ .Site.Title }}</div>
           </a>
 
           <!-- Using a <label /> here -->
-          <label class="button navbar-burger is-dark" for="navbar-burger-state">
-            <span></span>                              <!--^^^^^^^^^^^^^^^^^^^-->
-            <span></span>
-            <span></span>
+          <label role="button" class="navbar-burger has-text-light"
+                 aria-label="menu" aria-expanded="false"
+                 for="navbar-burger-state">
+                 <!-- ^^^^^^^^^^^^^^^^^^^ -->
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
           </label>
         </div>
 
         <!-- This checkbox is hidden -->
         <input type="checkbox" id="navbar-burger-state"/>
+                              <!-- ^^^^^^^^^^^^^^^^^^^ -->
 
         <div class="navbar-menu">
           <div class="navbar-end">
@@ -31,7 +35,9 @@
              class="navbar-item
                     {{ if or ($node.IsMenuCurrent "main" .) ($node.HasMenuCurrent "main" .) -}}
                       is-active
-                    {{- end }}">{{ .Name }}
+                    {{- end }}">{{- if .Pre }}{{ .Pre }}{{ end -}}
+                                {{ .Name }}
+                                {{- if .Post }}{{ .Post }}{{ end -}}
           </a>
           {{- end }}
           {{ partial "langswitch.html" .}}
