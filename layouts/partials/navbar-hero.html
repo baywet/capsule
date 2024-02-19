@@ -29,17 +29,6 @@
 
         <div class="navbar-menu">
           <div class="navbar-end">
-          {{- $node := . }}
-          {{- range .Site.Menus.main }}
-          <a href="{{ .URL }}"
-             class="navbar-item
-                    {{ if or ($node.IsMenuCurrent "main" .) ($node.HasMenuCurrent "main" .) -}}
-                      is-active
-                    {{- end }}">{{- if .Pre }}{{ .Pre }}{{ end -}}
-                                {{ .Name }}
-                                {{- if .Post }}{{ .Post }}{{ end -}}
-          </a>
-          {{- end }}
           {{ partial "langswitch.html" .}}
           </div>
         </div>
