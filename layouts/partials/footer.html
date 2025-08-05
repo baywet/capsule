@@ -39,7 +39,7 @@
           <!-- Most sites have the template https://<site>.com/<user>, so just
                use that instead of hardcoding everything. Sites that don't
                follow the template will need hard-coding, though... -->
-          {{- range $key, $value := .Site.Social }}
+          {{- range $key, $value := .Site.Params.Social }}
             {{- if eq $key "hacker-news" }}
           <a class="button"
              href="https://news.ycombinator.com/user?id={{ $value }}">
