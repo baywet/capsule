@@ -18,3 +18,6 @@ other = "Tags"
 
 [toc]
 other = "Table of contents"
+
+[read_more]
+other = "Read full article"
