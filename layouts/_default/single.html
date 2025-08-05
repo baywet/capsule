@@ -37,7 +37,7 @@
 
       <br>
         <div class="container">
-          {{- if not .Site.IsServer }}
+          {{- if not hugo.IsServer }}
             <div id="disqus_thread"></div>
             <script>
             var disqus_config = function () {
@@ -63,7 +63,7 @@
     </section>
 
     {{ partial "footer.html" . }}
-    {{- if not .Site.IsServer }}
+    {{- if not hugo.IsServer }}
       <script id="dsq-count-scr" src="//baywet.disqus.com/count.js" async></script>
     {{- end }}
     </body>
